@@ -1,6 +1,7 @@
 {
-  "name": "with-typescript",
-  "version": "1.0.0",
+  "name": "sass-diff",
+  "version": "0.1.0",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -8,15 +9,19 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@types/node-sass": "^4.11.1",
+    "@types/sass": "^1.16.0",
+    "axios": "^0.19.2",
     "next": "latest",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass": "^1.26.10"
   },
   "devDependencies": {
-    "@types/node": "^12.12.21",
-    "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4",
+    "@types/node": "^14.6.0",
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
     "typescript": "3.9.7"
-  },
-  "license": "ISC"
+  }
 }
