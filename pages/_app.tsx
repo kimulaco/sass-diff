@@ -1,10 +1,10 @@
 import { AppProps } from 'next/app'
-import '../assets/style.css'
+import '../assets/scss/style.scss'
 
 const App = ({ Component, pageProps }: AppProps) => {
-    return (
-        <Component {...pageProps} />
-    )
+  return (
+    <Component {...pageProps} />
+  )
 }
 
 export default App
