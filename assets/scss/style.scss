@@ -1,3 +1,10 @@
+@import './define/color';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-main: #{$color-main};
+  --color-white: #{$color-white};
+}
