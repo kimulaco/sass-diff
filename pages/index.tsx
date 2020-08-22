@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import AppLayout from '../components/AppLayout/AppLayout'
+import SassEditor from '../components/SassEditor/SassEditor'
+import CodePreview from '../components/CodePreview/CodePreview'
 
 const DEFAULT_SASS = `.example {
   width: #{100 + 10}px;
@@ -11,7 +13,7 @@ const IndexPage = () => {
   const [dartCssValue, setDartCssValue] = useState('')
   const [nodeCssValue, setNodeCssValue] = useState('')
 
-  const handleClickSubmit = async () => {
+  const handleSubmitEditor = async () => {
     try {
       const { data } = await axios.post('/api/sass', {
         sass: sassValue,
@@ -34,37 +36,27 @@ const IndexPage = () => {
     }
   }
 
+  useEffect(() => {
+    handleSubmitEditor()
+  }, [])
+
   return (
     <AppLayout>
-      <div>
-        <button
-          type="button"
-          onClick={handleClickSubmit}
-        >
-          submit
-        </button>
-      </div>
-      <textarea
+      <SassEditor
         value={sassValue}
-        onChange={(event: any) => {
-          setSassValue(event.currentTarget.value)
-        }}
+        onChange={(value: string) => { setSassValue(value) }}
+        onSubmit={handleSubmitEditor}
       />
 
-      <div>
-        <p>sass</p>
-        <div><pre><code>{sassValue}</code></pre></div>
-      </div>
+      <CodePreview
+        title="CSS by Dart Sass"
+        code={dartCssValue}
+      />
 
-      <div>
-        <p>css by Dart Sass</p>
-        <div><pre><code>{dartCssValue}</code></pre></div>
-      </div>
-
-      <div>
-        <p>css by Node Sass</p>
-        <div><pre><code>{nodeCssValue}</code></pre></div>
-      </div>
+      <CodePreview
+        title="CSS by Node Sass"
+        code={nodeCssValue}
+      />
     </AppLayout>
   )
 }
