@@ -7,7 +7,7 @@ type Props = {
   code: string
 }
 
-const CodePreview: React.FC = ({ 
+const CodePreview: React.FC = ({
   title = '',
   code = '',
 }: Props) => {
@@ -17,7 +17,7 @@ const CodePreview: React.FC = ({
         <h2>{title}</h2>
       </Bar>
       <div>
-        <pre><code>{code}</code></pre>
+        <pre><code className={styles.CodePreview_code}>{code}</code></pre>
       </div>
     </div>
   )

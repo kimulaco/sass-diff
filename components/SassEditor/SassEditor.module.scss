@@ -1,1 +1,9 @@
 .SassEditor {}
+
+.SassEditor_input {
+  display: block;
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  resize: none;
+}
