@@ -3,6 +3,7 @@ import Head from 'next/head'
 import AppHeader from '../AppHeader/AppHeader'
 import AppContent from '../AppContent/AppContent'
 import AppFooter from '../AppFooter/AppFooter'
+import styles from './AppLayout.module.scss'
 
 type Props = {
   children?: ReactNode
@@ -11,7 +12,7 @@ type Props = {
 
 const AppLayout: React.FC = ({ children, title = '' }: Props) => {
   return (
-    <div>
+    <div className={styles.AppLayout}>
       <Head>
         <title>{title ? `${title} | ` : ''}sass-diff</title>
         <meta charSet="utf-8" />
