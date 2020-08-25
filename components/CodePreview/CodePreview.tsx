@@ -7,7 +7,7 @@ type Props = {
   code: string
 }
 
-const CodePreview: React.FC = ({
+const CodePreview: React.FC<Props> = ({
   title = '',
   code = '',
 }: Props) => {

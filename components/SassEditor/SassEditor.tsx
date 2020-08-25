@@ -4,15 +4,15 @@ import styles from './SassEditor.module.scss'
 
 type Props = {
   value: string
-  onChange?: (value?: string) => void
-  onSubmit?: (value?: string) => void
+  onChange?: (value: string) => void
+  onSubmit?: (value: string) => void
 }
 
-const SassEditor: React.FC = ({
+const SassEditor: React.FC<Props> = ({
   value = '',
   onChange = () => {},
   onSubmit = () => {},
-}) => {
+}: Props) => {
   const [internalValue, setInternalValue] = useState(value)
 
   const handleSubmit = (event: any) => {
@@ -34,8 +34,8 @@ const SassEditor: React.FC = ({
         className={styles.SassEditor_input}
         value={internalValue}
         onChange={(event: any) => {
-          onChange(event.currentTarget.value)
-          setInternalValue(event.currentTarget.value)
+          onChange(event.currentTarget.value || '')
+          setInternalValue(event.currentTarget.value || '')
         }}
       />
     </form>
