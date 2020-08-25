@@ -3,6 +3,7 @@ import axios from 'axios'
 import AppLayout from '../components/AppLayout/AppLayout'
 import SassEditor from '../components/SassEditor/SassEditor'
 import CodePreview from '../components/CodePreview/CodePreview'
+import styles from './index.module.scss'
 
 const DEFAULT_SASS = `.example {
   width: #{100 + 10}px;
@@ -42,21 +43,30 @@ const IndexPage = () => {
 
   return (
     <AppLayout>
-      <SassEditor
-        value={sassValue}
-        onChange={(value: string) => { setSassValue(value) }}
-        onSubmit={handleSubmitEditor}
-      />
+      <div className={styles.grid}>
+        <div className={styles.grid_item_2}>
+          <SassEditor
+            value={sassValue}
+            onChange={(value: string) => { setSassValue(value) }}
+            onSubmit={handleSubmitEditor}
+          />
+        </div>
 
-      <CodePreview
-        title="CSS by Dart Sass"
-        code={dartCssValue}
-      />
+        <div className={styles.grid_item_1}>
+          <CodePreview
+            title="CSS by Dart Sass"
+            code={dartCssValue}
+          />
+        </div>
 
-      <CodePreview
-        title="CSS by Node Sass"
-        code={nodeCssValue}
-      />
+        <div className={styles.grid_item_1}>
+          <CodePreview
+            title="CSS by Node Sass"
+            code={nodeCssValue}
+          />
+        </div>
+      </div>
+
     </AppLayout>
   )
 }

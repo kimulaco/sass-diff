@@ -1,6 +1,13 @@
 .AppContent {
+  display: flex;
   width: 100%;
   flex: 1 1 auto;
 }
 
-.AppContent_inner {}
+.AppContent_inner {
+  width: 100%;
+  display: flex;
+  > * {
+    width: 100%;
+  }
+}
