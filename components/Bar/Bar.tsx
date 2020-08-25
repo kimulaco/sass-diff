@@ -7,7 +7,7 @@ type Props = {
 
 const Bar: React.FC = ({ children }: Props) => {
   return (
-    <div className={styles.Bar}>
+    <div className={styles.root}>
       {children}
     </div>
   )

@@ -7,8 +7,8 @@ type Props = {
 
 const AppContent: React.FC = ({ children }: Props) => {
   return (
-    <main className={styles.AppContent}>
-      <div className={styles.AppContent_inner}>
+    <main className={styles.root}>
+      <div className={styles.inner}>
         {children}
       </div>
     </main>

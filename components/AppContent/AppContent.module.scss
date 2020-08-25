@@ -1,10 +1,10 @@
-.AppContent {
+.root {
   display: flex;
   width: 100%;
   flex: 1 1 auto;
 }
 
-.AppContent_inner {
+.inner {
   width: 100%;
   display: flex;
   > * {

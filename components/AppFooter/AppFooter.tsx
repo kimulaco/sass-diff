@@ -3,9 +3,9 @@ import styles from './AppFooter.module.scss'
 
 const AppFooter: React.FC = () => {
   return (
-    <footer className={styles.AppFooter}>
-      <div className={styles.AppFooter_inner}>
-        <p className={styles.AppFooter_copyright}>
+    <footer className={styles.root}>
+      <div className={styles.inner}>
+        <p className={styles.copyright}>
           <small>&copy; 2020 sass-diff.</small>
         </p>
       </div>

@@ -12,12 +12,12 @@ const CodePreview: React.FC<Props> = ({
   code = '',
 }: Props) => {
   return (
-    <div className={styles.CodePreview}>
+    <div>
       <Bar>
         <h2>{title}</h2>
       </Bar>
       <div>
-        <pre><code className={styles.CodePreview_code}>{code}</code></pre>
+        <pre><code className={styles.code}>{code}</code></pre>
       </div>
     </div>
   )

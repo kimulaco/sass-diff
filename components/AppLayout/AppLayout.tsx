@@ -12,7 +12,7 @@ type Props = {
 
 const AppLayout: React.FC = ({ children, title = '' }: Props) => {
   return (
-    <div className={styles.AppLayout}>
+    <div className={styles.root}>
       <Head>
         <title>{title ? `${title} | ` : ''}sass-diff</title>
         <meta charSet="utf-8" />
