@@ -3,7 +3,7 @@ import axios from 'axios'
 import AppLayout from '../components/AppLayout/AppLayout'
 import SassEditor from '../components/SassEditor/SassEditor'
 import CodePreview from '../components/CodePreview/CodePreview'
-import { wait } from '../utils/'
+import { log } from '../utils/'
 import styles from './index.module.scss'
 
 const DEFAULT_SASS = `.example {
@@ -29,7 +29,7 @@ const IndexPage = () => {
       const { data } = await axios.post('/api/sass', {
         sass: value,
       })
-      console.log(data)
+      log(data)
 
       if (data.dart.css) {
         setDartCssValue(data.dart.css)
@@ -50,6 +50,7 @@ const IndexPage = () => {
   }
 
   useEffect(() => {
+    console.log(process.env.NODE_ENV)
     handleChangeEditor(sassValue)
   }, [])
 
