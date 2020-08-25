@@ -3,6 +3,7 @@ import axios from 'axios'
 import AppLayout from '../components/AppLayout/AppLayout'
 import SassEditor from '../components/SassEditor/SassEditor'
 import CodePreview from '../components/CodePreview/CodePreview'
+import { wait } from '../utils/'
 import styles from './index.module.scss'
 
 const DEFAULT_SASS = `.example {
@@ -13,11 +14,20 @@ const IndexPage = () => {
   const [sassValue, setSassValue] = useState(DEFAULT_SASS)
   const [dartCssValue, setDartCssValue] = useState('')
   const [nodeCssValue, setNodeCssValue] = useState('')
+  const [isCompiling, setIsCompiling] = useState(false)
 
-  const handleSubmitEditor = async () => {
+  const handleChangeEditor = async (value: string) => {
+    setSassValue(value)
+
+    if (isCompiling) {
+      return
+    }
+
+    setIsCompiling(true)
+
     try {
       const { data } = await axios.post('/api/sass', {
-        sass: sassValue,
+        sass: value,
       })
       console.log(data)
 
@@ -34,11 +44,13 @@ const IndexPage = () => {
       }
     } catch (error) {
       console.error(error)
+    } finally {
+      setIsCompiling(false)
     }
   }
 
   useEffect(() => {
-    handleSubmitEditor()
+    handleChangeEditor(sassValue)
   }, [])
 
   return (
@@ -46,9 +58,9 @@ const IndexPage = () => {
       <div className={styles.grid}>
         <div className={styles.grid_item_2}>
           <SassEditor
+            title="Sass"
             value={sassValue}
-            onChange={(value: string) => { setSassValue(value) }}
-            onSubmit={handleSubmitEditor}
+            onChange={handleChangeEditor}
           />
         </div>
 

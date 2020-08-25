@@ -4,10 +4,12 @@ import styles from './AppHeader.module.scss'
 
 const AppHeader: React.FC = () => {
   return (
-    <header className={styles.AppHeader}>
-      <div className={styles.AppHeader_inner}>
-        <h1 className={styles.AppHeader_title}>
-          <Link href="/"><a>sass-diff</a></Link>
+    <header className={styles.root}>
+      <div className={styles.inner}>
+        <h1 className={styles.title}>
+          <Link href="/">
+            <a className={styles.title_link}>sass-diff</a>
+          </Link>
         </h1>
       </div>
     </header>

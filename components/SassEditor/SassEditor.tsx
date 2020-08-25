@@ -3,12 +3,14 @@ import Bar from '../Bar/Bar'
 import styles from './SassEditor.module.scss'
 
 type Props = {
+  title: string
   value: string
   onChange?: (value: string) => void
   onSubmit?: (value: string) => void
 }
 
 const SassEditor: React.FC<Props> = ({
+  title = '',
   value = '',
   onChange = () => {},
   onSubmit = () => {},
@@ -22,16 +24,14 @@ const SassEditor: React.FC<Props> = ({
 
   return (
     <form
-      className={styles.SassEditor}
+      className={styles.root}
       onSubmit={handleSubmit}
     >
       <Bar>
-        <button type="submit">
-          submit
-        </button>
+        {title}
       </Bar>
       <textarea
-        className={styles.SassEditor_input}
+        className={styles.input}
         value={internalValue}
         onChange={(event: any) => {
           onChange(event.currentTarget.value || '')

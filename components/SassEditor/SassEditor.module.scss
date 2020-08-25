@@ -1,9 +1,13 @@
-.SassEditor {}
+.root {
+  display: flex;
+  flex-direction: column;
+}
 
-.SassEditor_input {
+.input {
   display: block;
   width: 100%;
-  height: 120px;
+  min-height: 120px;
   padding: 10px;
   resize: none;
+  flex: 1;
 }
