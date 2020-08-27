@@ -3,4 +3,5 @@ export type GAEvent = {
   action: string
   label?: string
   value?: string
+  callback?: () => void
 }
