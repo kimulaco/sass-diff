@@ -9,6 +9,7 @@ interface Window {
     fieldObject: {
       event_label: string
       event_category: string
+      event_callback: () => void
       value?: string
     }
   )
