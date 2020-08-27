@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { compileDartSass, compileNodeSass } from '../../../utils/sass'
+import { compileDartSass, compileNodeSass } from '../../../../utils/sass'
 
 const handler = (request: NextApiRequest, response: NextApiResponse) => {
   const sassValue = request.body.sass

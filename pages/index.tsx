@@ -15,6 +15,12 @@ const IndexPage = () => {
   const [dartCssValue, setDartCssValue] = useState('')
   const [nodeCssValue, setNodeCssValue] = useState('')
   const [isCompiling, setIsCompiling] = useState(false)
+  const dartSassTitle = process.env.SASS_VERSION_DART
+    ? `CSS by Dart Sass (v${process.env.SASS_VERSION_DART})`
+    : 'CSS by Dart Sass'
+  const nodeSassTitle = process.env.SASS_VERSION_NODE
+    ? `CSS by Node Sass (v${process.env.SASS_VERSION_NODE})`
+    : 'CSS by Node Sass'
 
   const handleChangeEditor = async (value: string) => {
     setSassValue(value)
@@ -26,7 +32,7 @@ const IndexPage = () => {
     setIsCompiling(true)
 
     try {
-      const { data } = await axios.post('/api/sass', {
+      const { data } = await axios.post('/api/sass/compile', {
         sass: value,
       })
       log(data)
@@ -50,7 +56,6 @@ const IndexPage = () => {
   }
 
   useEffect(() => {
-    console.log(process.env.NODE_ENV)
     handleChangeEditor(sassValue)
   }, [])
 
@@ -67,14 +72,14 @@ const IndexPage = () => {
 
         <div className={styles.grid_item_1}>
           <CodePreview
-            title="CSS by Dart Sass"
+            title={dartSassTitle}
             code={dartCssValue}
           />
         </div>
 
         <div className={styles.grid_item_1}>
           <CodePreview
-            title="CSS by Node Sass"
+            title={nodeSassTitle}
             code={nodeCssValue}
           />
         </div>
