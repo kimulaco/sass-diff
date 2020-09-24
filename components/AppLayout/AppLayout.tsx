@@ -11,7 +11,7 @@ type Props = {
   description?: string
 }
 
-const AppLayout: React.FC = ({
+const AppLayout: React.FC<Props> = ({
   children,
   title = '',
   description = '',
