@@ -7,15 +7,23 @@
 .inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   height: 50px;
   padding: 10px;
 }
 
+.title {
+  min-width: 84px;
+}
+
 .title_link {
   font-size: 18px;
   font-weight: bold;
+}
+
+.lead_text {
+  margin: 3px 0 0 24px;
+  line-height: 1.3;
 }
 
 .icon {
@@ -30,4 +38,8 @@
   display: block;
   max-width: 100%;
   max-height: 100%;
+}
+
+.nav {
+  margin-left: auto;
 }

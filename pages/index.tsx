@@ -60,7 +60,9 @@ const IndexPage = () => {
   }, [])
 
   return (
-    <AppLayout>
+    <AppLayout
+      description="Web App that compares the compilation results of Dart Sass and Node Sass."
+    >
       <div className={styles.grid}>
         <div className={styles.grid_item_2}>
           <SassEditor

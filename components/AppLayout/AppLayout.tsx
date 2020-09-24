@@ -8,15 +8,21 @@ import styles from './AppLayout.module.scss'
 type Props = {
   children?: ReactNode
   title?: string
+  description?: string
 }
 
-const AppLayout: React.FC = ({ children, title = '' }: Props) => {
+const AppLayout: React.FC = ({
+  children,
+  title = '',
+  description = '',
+}: Props) => {
   return (
     <div className={styles.root}>
       <Head>
         <title>{title ? `${title} | ` : ''}sass-diff</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0,width=device-width" />
+        <meta name="description" content={description} />
       </Head>
 
       <AppHeader />

@@ -25,7 +25,11 @@ const AppHeader: React.FC = () => {
           </Link>
         </h1>
 
-        <div>
+        <p className={styles.lead_text}>
+          Compare Dart Sass and Node Sass compilations
+        </p>
+
+        <div className={styles.nav}>
           <p>
             <a
               className={styles.icon}
