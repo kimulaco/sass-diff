@@ -1,27 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from './AppHeader.module.scss'
-import { sendEvent } from '../../utils/ga'
 
 const AppHeader: React.FC = () => {
-  const handleClickGithub = (event: any) => {
-    const href: string = event.currentTarget.href
-    event.preventDefault()
-
-    try {
-      sendEvent({
-        category: 'header',
-        action: 'click_github',
-        callback() {
-          location.href = href
-        },
-      })
-    } catch (error) {
-      console.error(error)
-      location.href = href
-    }
-  }
-
   return (
     <header className={styles.root}>
       <div className={styles.inner}>
@@ -40,7 +21,6 @@ const AppHeader: React.FC = () => {
             <a
               className={styles.icon}
               href="https://github.com/kimulaco/sass-diff"
-              onClick={handleClickGithub}
             >
               <img
                 className={styles.icon_img}
