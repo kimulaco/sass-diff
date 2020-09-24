@@ -7,13 +7,19 @@ const AppHeader: React.FC = () => {
   const handleClickGithub = (event: any) => {
     const href: string = event.currentTarget.href
     event.preventDefault()
-    sendEvent({
-      category: 'header',
-      action: 'click_github',
-      callback() {
-        location.href = href
-      },
-    })
+
+    try {
+      sendEvent({
+        category: 'header',
+        action: 'click_github',
+        callback() {
+          location.href = href
+        },
+      })
+    } catch (error) {
+      console.error(error)
+      location.href = href
+    }
   }
 
   return (
