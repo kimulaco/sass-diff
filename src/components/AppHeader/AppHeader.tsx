@@ -13,7 +13,7 @@ const AppHeader: React.FC = () => {
         </h1>
 
         <p className={styles.lead_text}>
-          Compare Dart Sass and Node Sass compilations
+          Compare Dart Sass and Node Sass compilations.
         </p>
 
         <div className={styles.nav}>
