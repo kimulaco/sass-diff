@@ -24,6 +24,7 @@ jobs:
         restore-keys: |
           ${{ env.CACHE_VERSION }}-node-
     - run: yarn
+    - run: yarn lint
     - run: yarn type-check
     - run: yarn build
     - name: Notify to Slack
