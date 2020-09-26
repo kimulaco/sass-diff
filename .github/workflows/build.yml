@@ -1,0 +1,36 @@
+name: Build
+on:
+  push:
+    branches:
+    - 'master'
+    - 'develop'
+  pull_request:
+    branches-ignore:
+      - 'master'
+      - 'develop'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Cache node_modules
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ env.CACHE_VERSION }}-node-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ env.CACHE_VERSION }}-node-
+    - run: yarn
+    - run: yarn type-check
+    - run: yarn build
+    - name: Notify to Slack
+      uses: homoluctus/slatify@master
+      if: always()
+      with:
+        type: ${{ job.status }}
+        job_name: '*build*'
+        channel: ${{ secrets.SLACK_CHANNEL }}
+        url: ${{ secrets.SLACK_WEBHOOK }}
