@@ -1,8 +1,8 @@
 import sass from 'sass'
 import nodeSass from 'node-sass'
-import { CompileData } from '../interfaces/sass'
+import { CompileOption, CompileData } from '../interfaces/sass'
 
-const SASS_OPTION = {
+const SASS_OPTION: CompileOption = {
   outputStyle: 'expanded',
   indentType: 'space',
   indentWidth: 2
@@ -10,7 +10,7 @@ const SASS_OPTION = {
 
 export const compileDartSass = (
   sassValue: string,
-  option: any = {}
+  option: CompileOption = {}
 ): CompileData => {
   try {
     const dartCssValue = sass.renderSync({
@@ -31,7 +31,7 @@ export const compileDartSass = (
 
 export const compileNodeSass = (
   sassValue: string,
-  option: any = {}
+  option: CompileOption = {}
 ): CompileData => {
   try {
     const nodeCssValue = nodeSass.renderSync({
