@@ -5,7 +5,7 @@ type Props = {
   children?: ReactNode
 }
 
-const Bar: React.FC = ({ children }: Props) => {
+const Bar: React.FC<Props> = ({ children }: Props) => {
   return (
     <div className={styles.root}>
       {children}

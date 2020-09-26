@@ -5,7 +5,7 @@ type Props = {
   children?: ReactNode
 }
 
-const AppContent: React.FC = ({ children }: Props) => {
+const AppContent: React.FC<Props> = ({ children }: Props) => {
   return (
     <main className={styles.root}>
       <div className={styles.inner}>

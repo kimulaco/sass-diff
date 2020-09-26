@@ -11,14 +11,14 @@ const DEFAULT_SASS = `.example {
 }`
 
 const IndexPage = () => {
-  const [sassValue, setSassValue] = useState(DEFAULT_SASS)
-  const [dartCssValue, setDartCssValue] = useState('')
-  const [nodeCssValue, setNodeCssValue] = useState('')
-  const [isCompiling, setIsCompiling] = useState(false)
-  const dartSassTitle = process.env.SASS_VERSION_DART
+  const [sassValue, setSassValue] = useState<string>(DEFAULT_SASS)
+  const [dartCssValue, setDartCssValue] = useState<string>('')
+  const [nodeCssValue, setNodeCssValue] = useState<string>('')
+  const [isCompiling, setIsCompiling] = useState<boolean>(false)
+  const dartSassTitle: string = process.env.SASS_VERSION_DART
     ? `CSS by Dart Sass (v${process.env.SASS_VERSION_DART})`
     : 'CSS by Dart Sass'
-  const nodeSassTitle = process.env.SASS_VERSION_NODE
+  const nodeSassTitle: string = process.env.SASS_VERSION_NODE
     ? `CSS by Node Sass (v${process.env.SASS_VERSION_NODE})`
     : 'CSS by Node Sass'
 
