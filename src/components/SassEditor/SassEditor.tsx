@@ -19,7 +19,10 @@ const SassEditor: React.FC<Props> = ({
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    onSubmit(internalValue)
+
+    if (typeof onSubmit === 'function') {
+      onSubmit(internalValue)
+    }
   }
 
   return (
@@ -34,7 +37,9 @@ const SassEditor: React.FC<Props> = ({
         className={styles.input}
         value={internalValue}
         onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-          onChange(event.currentTarget.value || '')
+          if (typeof onChange === 'function') {
+            onChange(event.currentTarget.value || '')
+          }
           setInternalValue(event.currentTarget.value || '')
         }}
       />

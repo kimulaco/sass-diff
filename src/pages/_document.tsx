@@ -1,3 +1,4 @@
+import React from 'react'
 import NextDocument, { Head, Main, NextScript } from 'next/document'
 import { hasGaId, GA_ID } from '../utils/ga'
 
