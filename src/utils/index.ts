@@ -1,4 +1,4 @@
-export const log = (data: any): void => {
+export const log = (data: string): void => {
   if (process.env.NODE_ENV !== 'production') {
     console.log(data)
   }
