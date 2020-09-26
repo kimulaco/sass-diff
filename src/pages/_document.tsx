@@ -1,9 +1,7 @@
 import NextDocument, { Head, Main, NextScript } from 'next/document'
 import { hasGaId, GA_ID } from '../utils/ga'
 
-type Props = {}
-
-class Document extends NextDocument<Props> {
+class Document extends NextDocument {
   render() {
     return (
       <html lang="ja">

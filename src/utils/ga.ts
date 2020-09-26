@@ -2,7 +2,7 @@ import { GAEvent } from '../interfaces/ga'
 
 export const GA_ID: string = process.env.GA_ID || ''
 
-export const hasGaId: boolean = Boolean(GA_ID)
+export const hasGaId = Boolean(GA_ID)
 
 export const sendPageview = (path: string): void => {
   if (!window.gtag) {

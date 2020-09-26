@@ -12,8 +12,8 @@ type Props = {
 const SassEditor: React.FC<Props> = ({
   title = '',
   value = '',
-  onChange = () => {},
-  onSubmit = () => {},
+  onChange,
+  onSubmit,
 }: Props) => {
   const [internalValue, setInternalValue] = useState<string>(value)
 
