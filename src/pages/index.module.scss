@@ -15,6 +15,7 @@
     grid-row: span 1 / span 1;
     border-left: 1px solid #ddd;
     border-bottom: 2px solid #ddd;
+
     > * {
       width: 100%;
     }
@@ -27,6 +28,7 @@
     grid-row: span 2 / span 2;
     border-right: 1px solid #ddd;
     border-bottom: 2px solid #ddd;
+
     > * {
       width: 100%;
     }
